@@ -28,6 +28,9 @@ def generate_context(prompt, relevant_memory, full_message_history, model):
         create_chat_message(
             "system", prompt),
         create_chat_message(
+            "system",
+            f"If your answer is json, return the json only, start at {.Never again write ``` or explanations before the json.Answer in json only.Only ever start at {"),
+        create_chat_message(
             "system", f"The current time and date is {time.strftime('%c')}"),
         create_chat_message(
             "system", f"This reminds you of these events from your past:\n{relevant_memory}\n\n")]
